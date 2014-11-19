@@ -1,0 +1,111 @@
+@import 'bower_components/bootstrap/less/bootstrap';
+@import 'bower_components/bootswatch/spacelab/variables';
+@import 'bower_components/bootswatch/spacelab/variables';
+
+
+/*main.less*/
+/*base*/
+body {
+    min-width: 300px;
+}
+
+.content {
+    padding: 0 10px;
+}
+
+.tab-pane {
+    padding: 20px;
+}
+
+.navbar-text {
+    padding: 0 12px;
+}
+
+/*login*/
+//@import 'src/login/login';
+.login {
+    color: @navbar-default-color;
+    background-color: @navbar-default-bg;
+    border: 1px solid @gray-lighter;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 15px;
+    width: 300px;
+
+    &__title {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    &__form {
+        text-align: center;
+    }
+}
+
+
+/**/
+.nc {
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    &__item {
+        background-color: @body-bg;
+        border: 1px solid @gray-lighter;
+        border-radius: 5px;
+        display: inline-block;
+        margin: 10px;
+        width: 220px;
+
+        &:hover {
+            //box-shadow: 0 0 5px @btn-primary-bg;
+        }
+    }
+
+    &__link {
+        display: block;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
+
+            .nc__info {
+                border-bottom-color: @btn-primary-bg;
+            }
+        }
+    }
+
+    &__info {
+        background-color: darken(@body-bg, 1%);
+        border-top: 1px solid @gray-lighter;
+        border-bottom: 5px solid transparent;
+        padding: 5px;
+    }
+
+    &__state {
+        display: inline-block;
+        font-size: .9em;
+    }
+
+    &__img {
+        max-width: 100%;
+    }
+
+    &__title {
+        font-size: 1.1em;
+    }
+
+    &__details {
+        a {
+            cursor: pointer;
+        }
+    }
+
+    &__curr-state {
+        font-size: 1.2em;
+    }
+}

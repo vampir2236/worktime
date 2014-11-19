@@ -1,0 +1,33 @@
+<div class="nc">
+    <ul class="breadcrumb">
+        <li class="active">
+            Оборудование
+        </li>
+    </ul>
+
+    <ul class="nav nav-pills">
+        <li ng-repeat="state in states" ng-class="{'active': state.active}">
+            <a href ng-click="setActiveState($index)">{{ state.name }}
+                <span class="badge">{{ state.count || 0}}</span>
+            </a>
+        </li>
+    </ul>
+
+
+    <hr>
+    <ul class="nc__list">
+        <li class="nc__item" ng-repeat="nc in ncList | filter:filterState">
+            <a href class="nc__link" ng-click="get(nc.id)">
+                <div class="nc__img">
+                    <img ng-src="{{ nc.img || 'img/no-image.jpg' }}" alt="{{ nc.name }}">
+                </div>
+                <div class="nc__info">
+                    <div class="nc__title">{{ nc.name }}</div>
+                    <div class="nc__state {{ nc.labelClass }}">
+                        <span class=" {{ nc.glyphClass }} "></span> {{ nc.state.name }}
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>

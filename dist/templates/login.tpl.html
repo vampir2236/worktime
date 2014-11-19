@@ -1,0 +1,16 @@
+<div class="login">
+    <div class="login__title">
+        Отсканировать штрих-код с таб. № или ввести вручную
+    </div>
+    <form class="login__form form" ng-submit="login()">
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-user"></span>
+                </div>
+                <input type="number" class="form-control" min="0" tabindex="1" required placeholder="Введите код" ng-model="user.code">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Войти</button>
+    </form>
+</div>

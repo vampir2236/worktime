@@ -1,0 +1,89 @@
+<ul class="breadcrumb">
+    <li><a href ng-click="goBack()">Оборудование</a>
+    </li>
+    <li class="active">{{ nc.name }}</li>
+</ul>
+
+<hr>
+<div class="nc__details">
+    <h4 class="nc__curr-state text-muted {{ nc.state.type ? 'text-' + nc.state.type : '' }}">
+        <span class="{{ nc.state.img ? 'glyphicon glyphicon-' + nc.state.img : '' }}"></span>
+        Состояние: {{ nc.state.name }} (c {{ nc.dateState | date:'dd.MM.yyyy HH:mm:ss' }}) {{ nc.state.reason ? '. Причина простоя: ' + nc.state.reason.name + '.': '' }}
+    </h4>
+
+    <form class="form" ng-submit="confirm()">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                    <select class="form-control" ng-model="currState" ng-options="state.name for state in states | filter:excludeCurrState" required>
+                        <option value="">Выберите новое состояние...</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                    <select class="form-control" ng-model="currReason" ng-options="reason.name for reason in reasons" ng-required="currState.id === 5" ng-show="currState.id === 5">
+                        <option value="">Укажите причину простоя...</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <button type="submit" class="btn btn-primary pull-right">Подтвердить</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<!--
+    <tabset>
+        <tab heading="Работа">
+            <form class="form-inline text-center">
+                <button type="submit" class="btn btn-primary">Подтвердить</button>
+            </form>
+        </tab>
+        <tab heading="Наладка">
+            <form class="form-inline text-center">
+                <button type="submit" class="btn btn-primary">Подтвердить</button>
+            </form>
+        </tab>
+        <tab heading="Ремонт">
+            <form class="form-inline text-center">
+                <button type="submit" class="btn btn-primary">Подтвердить</button>
+            </form>
+        </tab>
+        <tab heading="Простой">
+            <form action="" class="form-inline text-center">
+                <div class="form-group">
+                    <div class="input-group">
+                        <select name="" id="reason" class="form-control">
+                            <option value="">Причина 1</option>
+                            <option value="">Причина 2</option>
+                            <option value="">Причина 3</option>
+                            <option value="">Причина 4</option>
+                        </select>
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href>Добавить</a>
+                                </li>
+                                <li><a href>Отредактировать</a>
+                                </li>
+                                <li><a href>Удалить</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Подтвердить</button>
+            </form>
+        </tab>
+    </tabset>
+</div>
+-->
